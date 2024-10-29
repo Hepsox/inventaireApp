@@ -1,0 +1,48 @@
+<form [formGroup]="formProduct" #PoductForm="ngForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="title">Nom du produit</label>
+    <input type="text" id="title" formControlName="title" />
+  </div>
+
+  <div>
+    <label for="description">Description</label>
+    <textarea
+      id="description"
+      formControlName="description"
+      rows="4"
+      cols="50"
+    ></textarea>
+  </div>
+
+  <div>
+    <label for="category">Choisir une catégorie</label>
+
+    <select formControlName="category" id="category">
+      <option value="hygiene">Hygiène</option>
+      <option value="loisir">Loisir</option>
+    </select>
+  </div>
+
+  <div>
+    <label>Disponibilité</label>
+    <div>
+      <input
+        type="radio"
+        id="disponible"
+        formControlName="disponibility"
+        [value]="true"
+      />
+      <label for="disponible">Disponible</label>
+    </div>
+    <div>
+      <input
+        type="radio"
+        id="indisponible"
+        formControlName="disponibility"
+        [value]="false"
+      />
+      <label for="indisponible">Indisponible</label>
+    </div>
+  </div>
+  <button type="submit">Ajouter mon produit</button>
+</form>
