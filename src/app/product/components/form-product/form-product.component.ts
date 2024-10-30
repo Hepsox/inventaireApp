@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ProductService } from '../../services/product.service';
-import { Product } from '../../models/product.type';
+import { NewProduct } from '../../models/newProduct.type';
 
 @Component({
   selector: 'app-form-product',
@@ -23,7 +23,7 @@ export class FormProductComponent {
 
   onSubmit() {
     this.ProductService.createProduct(
-      this.formProduct.value as Product
+      this.formProduct.value as NewProduct
     ).subscribe();
   }
 }
