@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
+import { ProductService } from '../../services/product.service';
 
 @Component({
   selector: 'app-form-product',
@@ -7,7 +8,10 @@ import { FormBuilder } from '@angular/forms';
   styleUrl: './form-product.component.css',
 })
 export class FormProductComponent {
-  constructor(private fb: FormBuilder) {}
+  constructor(
+    private fb: FormBuilder,
+    private ProductService: ProductService
+  ) {}
 
   formProduct = this.fb.group({
     title: [''],
@@ -18,5 +22,6 @@ export class FormProductComponent {
 
   onSubmit() {
     console.log(this.formProduct.value);
+    this.ProductService.createProduct(this.formProduct.value).subscribe();
   }
 }
