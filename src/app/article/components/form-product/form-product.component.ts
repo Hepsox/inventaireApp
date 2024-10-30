@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { ProductService } from '../../services/product.service';
+import { Product } from '../../models/product.type';
 
 @Component({
   selector: 'app-form-product',
@@ -21,7 +22,8 @@ export class FormProductComponent {
   });
 
   onSubmit() {
-    console.log(this.formProduct.value);
-    this.ProductService.createProduct(this.formProduct.value).subscribe();
+    this.ProductService.createProduct(
+      this.formProduct.value as Product
+    ).subscribe();
   }
 }
